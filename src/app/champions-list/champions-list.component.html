@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="loading-container" *ngIf="isLoading">
+        <div class="spinner"></div>
+    </div>
+    <ul class="list" *ngIf="!isLoading">
+        <li (click)="goToWinnersPage(season)" *ngFor="let season of seasons">
+            {{season.year}} {{season.champion.givenName}} {{season.champion.familyName}}
+        </li>
+    </ul>
+</div>

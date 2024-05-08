@@ -3,14 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChampionsListComponent } from './champions-list/champions-list.component';
+import { ChampionsLandingPageComponent } from './champions-landing-page/champions-landing-page.component';
+import { ChampionsHeaderComponent } from './champions-header/champions-header.component';
+import { ChampionsWinnersComponent } from './champions-winners/champions-winners.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChampionsListComponent,
+    ChampionsLandingPageComponent,
+    ChampionsHeaderComponent,
+    ChampionsWinnersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
