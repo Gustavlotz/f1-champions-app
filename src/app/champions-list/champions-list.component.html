@@ -1,7 +1,7 @@
 <div class="container">
     <ul class="list">
-        <li *ngFor="let obj of dataArray" (click)="handleItemClick(obj)">
-            <div class="row-content" [appHighlightWinner]="obj.isWinner">
+        <li *ngFor="let obj of dataArray" (click)="handleItemClick(obj)" [appHighlightWinner]="obj.isWinner">
+            <div class="row-content">
                 <span class="item">
                     {{obj.index }} - {{ obj.champion.givenName }} {{
                     obj.champion.familyName }}
