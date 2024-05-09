@@ -1,6 +1,5 @@
 <div class="app-container">
     <app-champions-header></app-champions-header>
-    <div class="content">
-        <app-champions-list></app-champions-list>
-    </div>
+    <app-champions-list [onItemClick]="goToWinnersPage" [dataArray]="seasons" *ngIf="!isLoading"></app-champions-list>
+    <app-loader [isLoading]="isLoading"></app-loader>
 </div>

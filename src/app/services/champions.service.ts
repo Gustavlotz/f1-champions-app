@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin, map } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { env } from '../environments/environment';
-import { ApiResponse } from '../models/apiResponse.interface';
+import { ApiResponseSeasons, ApiResponseRaces } from '../models/apiResponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ChampionsService {
   constructor(private http: HttpClient) { }
 
   // could put params here for reuseability although was not specified in spec (getWorldChamps(startYear, endYear))
-  getSeasonsAndChampions(): Observable<ApiResponse[]> {
+  getSeasonsAndChampions(): Observable<ApiResponseSeasons[]> {
     const requests: Observable<any>[] = [];
     let currentYear = new Date().getFullYear(); // dynamic coded upper limit
     for (let year = 2005; year <= currentYear; year++) {
@@ -22,7 +22,12 @@ export class ChampionsService {
     return forkJoin(requests); // Combine multiple observables into a single observable
   }
 
-  async getSingleSeasonByYearWins(year: number): Promise<Observable<ApiResponse[]>> {
+  getSeasonChamp(year: string): Observable<ApiResponseSeasons[]> {
+    const requestUrl = `${this.apiUrl}/${year}/driverStandings.json`;
+    return this.http.get<any>(requestUrl);
+  }
+
+  async getSingleSeasonByYearWins(year: number): Promise<Observable<ApiResponseRaces[]>> {
     try {
       let numberRaces = await this.helperRequestNumberRacesInThatSeason(year);
       const requests: Observable<any>[] = [];

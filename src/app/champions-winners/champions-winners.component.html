@@ -1,1 +1,5 @@
-<app-champions-header [year]="year"></app-champions-header>
+<div class="app-container">
+    <app-champions-header [year]="year"></app-champions-header>
+    <app-champions-list [dataArray]="raceWinners" *ngIf="!isLoading"></app-champions-list>
+    <app-loader [isLoading]="isLoading"></app-loader>
+</div>

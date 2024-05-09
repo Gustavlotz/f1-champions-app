@@ -8,6 +8,8 @@ import { ChampionsLandingPageComponent } from './champions-landing-page/champion
 import { ChampionsHeaderComponent } from './champions-header/champions-header.component';
 import { ChampionsWinnersComponent } from './champions-winners/champions-winners.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './loader/loader.component';
+import { HighlightWinnerDirective } from './directives/highlight-winner.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     ChampionsListComponent,
     ChampionsLandingPageComponent,
     ChampionsHeaderComponent,
-    ChampionsWinnersComponent
+    ChampionsWinnersComponent,
+    LoaderComponent,
+    HighlightWinnerDirective
   ],
   imports: [
     BrowserModule,
